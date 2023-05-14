@@ -1,0 +1,92 @@
+classDiagram
+    App .. Command
+    App .. Database
+    App .. CustomException
+    Database .. Ride
+    Database .. Mission
+    Database .. Driver
+    Database .. DriverMission
+    CustomException: - string err_message
+    CustomException: + CustomException(msg)
+    CustomException: + what()
+    App: - Database db
+    App: - map<string, Command> commands
+    App: + App()
+    App: + void start()
+    App: - void initialize_commands()
+    App: - void execute_command(cmd, args)
+    Database: - vector<Driver*> drivers
+    Database: - vector<Ride*> ride
+    Database: - vector<DriverMission*> driver_missions
+    Database: - vector<Mission*> missions
+    Database: - Driver* get_driver(id)
+    Database: - Driver* get_or_craete_driver(id)
+    Database: - Mission* get_mission(id)
+    Database: + Database()
+    Database: + void assign_mission(driver_id, mission_id)
+    Database: + void record_ride(Timestamp start, Timestamp end, driver_id, distance)
+    Database: + void print_driver_missions(driver_id)
+    Database: + void add_mission(mission_type, mission_id, start, end, component, reward_amount)
+    Command: # int num_of_args
+    Command: # void validate_number_of_arguments(args)
+    Command: + Command(num_of_args)
+    Command: + pure virtual void execute(db, args)
+    Command <-- AddMissionCommand
+    Command <-- AssignMissionCommand
+    Command <-- RecordRideCommand
+    Command <-- ShowMissionsStatusCommand
+    AddMissionCommand: - MISSION_TYPES mission_type
+    AddMissionCommand: + AddMissionCommand(MISSION_TYPES type)
+    AssignMissionCommand: + AssignMissionCommand()
+    RecordRideCommand: + RecordRideCommand()
+    ShowMissionsStatusCommand: + ShowMissionsStatusCommand()
+    Ride: - Timestamp start_time
+    Ride: - Timestamp finish_time
+    Ride: - Driver* driver
+    Ride: - int distance
+    Ride: + Ride(start, end, driver, distance)
+    Ride: + int get_distance()
+    Ride: + int get_minutes()
+    Ride: + Timestamp get_start_time()
+    Ride: + Timestamp get_end_time()
+    Ride: + Driver* get_driver()
+    Mission: - int id
+    Mission: - int reward_amount
+    Mission: - Timestamp start_time
+    Mission: - Timestamp finish_time
+    Mission: + Mission(id, start, end, reward)
+    Mission: + int get_id()
+    Mission: + Timestamp get_start_time()
+    Mission: + Timestamp get_end_time()
+    Mission: + void print(finisher_end_timestamp)
+    Mission: + void print_with_details(is_completed)
+    Mission: + bool includes_ride(ride)
+    Mission: + pure virtual bool is_completed(driver_mission)
+    Mission <-- TimeMission
+    Mission <-- DistanceMission
+    Mission <-- CountMission
+    TimeMission: - int target_time_in_minutes
+    TimeMission: + TimeMission(id, start, end, time, reward)
+    CountMission: - int target_number
+    CountMission: + CountMission(id, start, end, time, reward)
+    DistanceMission: - int target_distance_in_meters
+    DistanceMission: + DistanceMission(id, start, end, time, reward)
+    Driver: - int id
+    Driver: + Driver(id)
+    Driver: + int get_id()
+    Driver <.. DriverMission
+    Mission <.. DriverMission
+    DriverMission: - Driver* driver
+    DriverMission: - Mission* mission
+    DriverMission: - bool done
+    DriverMission: - int distance_covered
+    DriverMission: - int minutes_spent
+    DriverMission: - int total_rides_count
+    DriverMission: + DriverMission(driver, mission)
+    DriverMission: + Driver* get_driver()
+    DriverMission: + Mission* get_mission()
+    DriverMission: + bool is_done()
+    DriverMission: + void udpate_stats(ride)
+    DriverMission: + int get_distance_covered()
+    DriverMission: + int get_time_spent()
+    DriverMission: + int get_total_rides_count()
