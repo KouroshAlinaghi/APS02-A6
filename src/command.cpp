@@ -8,7 +8,7 @@
 using namespace std;
 
 void Command::validate_number_of_arguments(vector<string>& args) {
-    if (num_of_args != (int)args.size() - 1) throw CustomException("WRONG_NUMBER_OF_ARGUMENTS");
+    if (num_of_args != (int)args.size() - 1) throw CustomException("INVALID_ARGUMENTS");
 }
 
 void AddMissionCommand::execute(Database& db, std::vector<std::string> args) {

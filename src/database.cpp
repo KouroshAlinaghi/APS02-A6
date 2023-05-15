@@ -70,8 +70,6 @@ void Database::record_ride(Timestamp start, Timestamp end, int driver_id, int di
         if (dm->is_done()) continue;
         if (dm->get_driver() != driver) continue;
         found_mission = true;
-        if (dm->get_mission()->includes_ride(*ride))
-            dm->update_stats(*ride);
         if (dm->is_done())
             dm->get_mission()->print(end);
     }
