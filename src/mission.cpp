@@ -25,7 +25,7 @@ void Mission::print(Timestamp finisher_end_timestamp) {
 }
 
 void Mission::print_with_details(bool completed, Timestamp finisher_timestamp) {
-    cout << "mission: " << id << endl;
+    cout << "mission " << id << ":" << endl;
     cout << "start timestamp: " << start_time << endl;
     cout << "end timestamp: " << (completed ? finisher_timestamp : -1) << endl;
     cout << "reward: " << reward_amount << endl;

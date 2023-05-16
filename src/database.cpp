@@ -61,12 +61,16 @@ void Database::record_ride(Timestamp start, Timestamp end, int driver_id, int di
     Ride* ride = new Ride(start, end, driver, distance);
     rides.push_back(ride);
     cout << "completed missions for driver " << driver_id << ":" << endl;
+    int stupid_counter = 0;
     for (DriverMission* dm : driver_missions) {
         if (dm->is_done()) continue;
         if (!dm->get_mission()->includes_ride(*ride)) continue;
         if (dm->get_driver() == driver) dm->update_stats(*ride);
-        if (dm->get_driver() == driver && dm->is_done())
+        if (dm->get_driver() == driver && dm->is_done()) {
+            if (stupid_counter) cout << endl;
+            stupid_counter++;
             dm->get_mission()->print(end);
+        }
     }
 }
 
@@ -75,9 +79,13 @@ void Database::print_driver_missions(int driver_id) {
         throw CustomException("DRIVER_MISSION_NOT_FOUND");
 
     cout << "missions status for driver " << driver_id << ":" << endl;
+    int stupid_counter = 0;
     for (DriverMission* dm : driver_missions)
-        if (dm->get_driver()->get_id() == driver_id)
+        if (dm->get_driver()->get_id() == driver_id) {
+            if (stupid_counter) cout << endl;
+            stupid_counter++;
             dm->get_mission()->print_with_details(dm->is_done(), dm->get_finisher_timestamp());
+        }
 }
 
 void Database::add_mission(MISSION_TYPES type, int mission_id, Timestamp start, Timestamp end, int component, int reward_amount) {
