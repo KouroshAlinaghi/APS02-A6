@@ -26,12 +26,12 @@ void App::execute_command(string command, vector<string> arguments) {
 void App::start() {
     string new_line;
     while (getline(cin, new_line)) {
-        if (new_line.empty()) continue;
         vector<string> words = split(new_line, ' ');
+        if (words.empty()) continue;
         try {
             execute_command(words.front(), words);
         } catch (CustomException& e) {
-            std::cout << e.what() << std::endl;
+            cout << e.what() << endl;
         }
     }
 }

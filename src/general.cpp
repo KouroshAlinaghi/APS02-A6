@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "general.hpp"
 
 using namespace std;
@@ -11,6 +13,7 @@ string trim(string str) {
 }
 
 vector<string> split(string str, char delim) {
+    if (str.back() == 13) str.pop_back();
     vector<string> res;
     string cur = "";
     for (char c : str) 
@@ -20,6 +23,7 @@ vector<string> split(string str, char delim) {
             cur += c;
 
     if (cur.size()) res.push_back(trim(cur));
+
     return res;
 }
 
@@ -29,5 +33,5 @@ MISSION_TYPES get_mission_type(std::string cmd) {
     if (cmd == "add_distance_mission")
         return MISSION_TYPES::DISTANCE_MISSION;
         
-    return MISSION_TYPES::COUNT_MISSION;;
+    return MISSION_TYPES::COUNT_MISSION;
 }

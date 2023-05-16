@@ -76,7 +76,7 @@ void Database::record_ride(Timestamp start, Timestamp end, int driver_id, int di
 
 void Database::print_driver_missions(int driver_id) {
     if (!get_driver(driver_id))
-        throw CustomException("DRIVER_MISSION_NOT_FOUND");
+        throw CustomException("MISSION_NOT_FOUND");
 
     cout << "missions status for driver " << driver_id << ":" << endl;
     int stupid_counter = 0;

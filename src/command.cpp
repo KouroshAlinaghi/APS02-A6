@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 
+#include <iostream>
+
 #include "custom_exception.hpp"
 #include "command.hpp"
 #include "general.hpp"
