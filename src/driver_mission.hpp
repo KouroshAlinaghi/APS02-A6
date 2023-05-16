@@ -1,6 +1,7 @@
 #ifndef DRIVER_MISSION_HEADERFILE
 #define DRIVER_MISSION_HEADERFILE
 
+#include "timestamp.hpp"
 class Mission;
 
 #include "driver.hpp"
@@ -12,6 +13,7 @@ private:
     Driver* driver;
     Mission* mission;
     bool done;
+    Timestamp finisher_timestamp;
     int distance_covered, minutes_spent, total_rides_count;
 public:
     DriverMission(Driver* driver_, Mission* mission_) {
@@ -29,6 +31,7 @@ public:
     int get_distance_covered();
     int get_minutes_spent();
     int get_total_rides_count();
+    Timestamp get_finisher_timestamp();
 };
 
 #endif

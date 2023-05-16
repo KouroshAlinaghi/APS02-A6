@@ -6,7 +6,7 @@ OBJS=$(subst .cpp,.o,$(SRCS))
 all: A6
 
 A6: $(OBJS)
-	g++ $(OBJS) -o A6 
+	g++ $(OBJS) -o main 
 
 %.o: %.cpp $(HEADERS)
 	g++ $(C_FLAGS) -c -o $@ $<

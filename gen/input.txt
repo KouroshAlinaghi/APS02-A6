@@ -1,0 +1,43 @@
+show_missions_status 8
+record_ride 1684318001 1684268517 3 12
+add_count_mission 8 1684260764 1684285452 2 -3600
+add_count_mission 5 1684319515 1684244805 18 2400
+assign_mission 3 3
+add_distance_mission 3 1684295785 1684254884 -30 -3200
+add_count_mission 6 1684242862 1684292879 -5 2400
+show_missions_status 5
+record_ride 1684289891 1684271330 9 22
+show_missions_status 3
+show_missions_status 7
+add_count_mission 4 1684249138 1684250895 -5 3200
+record_ride 1684238879 1684232799 9 30
+add_time_mission 8 1684284015 1684269534 14 3600
+add_count_mission 0 1684308455 1684275180 2 3200
+assign_mission 3 0
+add_distance_mission 1 1684307164 1684232983 6 -400
+add_count_mission 6 1684236469 1684246924 15 2800
+show_missions_status 9
+add_count_mission 4 1684246444 1684259372 15 -3200
+add_distance_mission 1 1684276883 1684323102 22 -1200
+show_missions_status 1
+show_missions_status 4
+assign_mission 9 8
+show_missions_status 2
+show_missions_status 8
+add_distance_mission 9 1684243554 1684231596 -23 4000
+show_missions_status 8
+add_count_mission 9 1684273616 1684272466 1 -800
+add_count_mission 0 1684270274 1684320661 18 -400
+show_missions_status 8
+record_ride 1684260026 1684254809 6 30
+add_count_mission 0 1684296027 1684234524 23 -1200
+show_missions_status 3
+record_ride 1684268007 1684316553 3 4
+assign_mission 6 5
+show_missions_status 6
+add_count_mission 2 1684283140 1684260985 -18 2400
+record_ride 1684256354 1684308822 6 16
+add_time_mission 5 1684313760 1684272235 3 -1200
+show_missions_status 1
+show_missions_status 6
+add_distance_mission 0 1684239141 1684260619 21 3200

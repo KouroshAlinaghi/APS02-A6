@@ -27,7 +27,7 @@ public:
     Timestamp get_start_time();
     Timestamp get_end_time();
     void print(Timestamp finisher_end_timestamp);
-    void print_with_details(bool completed);
+    void print_with_details(bool completed, Timestamp finisher);
     bool includes_ride(Ride ride);
     virtual bool is_completed(DriverMission* dm) = 0;
 };
